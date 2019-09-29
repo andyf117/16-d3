@@ -1,17 +1,11 @@
-// D3 Animated Scatter Plot
 
-// Section 1: Pre-Data Setup
-// ===========================
-// Before we code any data visualizations,
-// we need to at least set up the width, height and margins of the graph.
-// Note: I also added room for label text as well as text padding,
-// though not all graphs will need those specifications.
+// @TODO: YOUR CODE HERE!
 
 // Grab the width of the containing box
 var width = parseInt(d3.select("#scatter").style("width"));
 
 // Designate the height of the graph
-var height = width - width / 3.9;
+var height = width - width / 4;
 
 // Margin spacing for graph
 var margin = 20;
@@ -37,7 +31,7 @@ var svg = d3
 var circRadius;
 function crGet() {
   if (width <= 530) {
-    circRadius = 5;
+    circRadius = 10;
   }
   else {
     circRadius = 10;
@@ -75,26 +69,26 @@ xTextRefresh();
 xText
   .append("text")
   .attr("y", -26)
-  .attr("data-name", "poverty")
+  .attr("data-name", "obesity")
   .attr("data-axis", "x")
   .attr("class", "aText active x")
-  .text("In Poverty (%)");
+  .text("Obesity (%)");
 // 2. Age
 xText
   .append("text")
   .attr("y", 0)
-  .attr("data-name", "age")
+  .attr("data-name", "obesityLow")
   .attr("data-axis", "x")
   .attr("class", "aText inactive x")
-  .text("Age (Median)");
+  .text("Obesity High");
 // 3. Income
 xText
   .append("text")
   .attr("y", 26)
-  .attr("data-name", "income")
+  .attr("data-name", "obesityHigh")
   .attr("data-axis", "x")
   .attr("class", "aText inactive x")
-  .text("Household Income (Median)");
+  .text("Obesity Low");
 
 // B) Left Axis
 // ============
@@ -119,30 +113,33 @@ function yTextRefresh() {
 }
 yTextRefresh();
 
+
+
+// id,state,abbr,poverty,povertyMoe,age,ageMoe,income,incomeMoe,healthcare,healthcareLow,healthcareHigh,obesity,obesityLow,obesityHigh,smokes,smokesLow,smokesHigh,-
 // Now we append the text.
 // 1. Obesity
 yText
   .append("text")
   .attr("y", -26)
-  .attr("data-name", "obesity")
+  .attr("data-name", "healthcare")
   .attr("data-axis", "y")
   .attr("class", "aText active y")
-  .text("Obese (%)");
+  .text("Healthcare (%)");
 
 // 2. Smokes
 yText
   .append("text")
   .attr("x", 0)
-  .attr("data-name", "smokes")
+  .attr("data-name", "healthcareHigh")
   .attr("data-axis", "y")
   .attr("class", "aText inactive y")
-  .text("Smokes (%)");
+  .text("Healthcare High (%)");
 
 // 3. Lacks Healthcare
 yText
   .append("text")
   .attr("y", 26)
-  .attr("data-name", "healthcare")
+  .attr("data-name", "healthcareLow")
   .attr("data-axis", "y")
   .attr("class", "aText inactive y")
   .text("Lacks Healthcare (%)");
